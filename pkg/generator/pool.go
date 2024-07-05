@@ -76,7 +76,10 @@ func NewParameterPool[T any](
 	scheduler.compute(func(ctx context.Context) {
 		start := time.Now()
 
-		generated := generateFn(ctx)
+		var generated *T = nil
+		if len(pool) < poolSize {
+			generated = generateFn(ctx)
+		}
 
 		// The generateFn returns nil when the context is done. We should not
 		// add nil element to the pool.
