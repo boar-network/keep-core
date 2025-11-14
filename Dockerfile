@@ -26,7 +26,7 @@ RUN apk add --update --no-cache \
 	rm -rf /var/cache/apk/ && mkdir /var/cache/apk/ && \
 	rm -rf /usr/share/man
 
-RUN go install gotest.tools/gotestsum@latest
+RUN go install gotest.tools/gotestsum@v1.10.1
 
 RUN mkdir -p $APP_DIR $TEST_RESULTS_DIR
 
